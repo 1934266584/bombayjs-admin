@@ -28,35 +28,35 @@ const UserLayout: React.SFC<UserLayoutProps> = props => {
     },
   } = props;
   const { breadcrumb } = getMenuData(routes);
-  console.log(routes, getMenuData(routes));
+  console.log(children);
   return (
-    <DocumentTitle
-      title={getPageTitle({
-        pathname: location.pathname,
-        breadcrumb,
-        formatMessage,
-        ...props,
-      })}
-    >
-      <div className={styles.container}>
-        <div className={styles.lang}>
-          <SelectLang />
-        </div>
-        <div className={styles.content}>
-          <div className={styles.top}>
-            <div className={styles.header}>
-              <Link to="/">
-                {/* <img alt="logo" className={styles.logo} src={logo} /> */}
-                <span className={styles.title}>Bombayjs Admin</span>
-              </Link>
-            </div>
-            <div className={styles.desc}>Bombayjs Admin是Bombayjs前端监控管理后台</div>
-          </div>
-          {children}
-        </div>
-        <DefaultFooter />
+    // <DocumentTitle
+    //   title={getPageTitle({
+    //     pathname: location.pathname,
+    //     breadcrumb,
+    //     formatMessage,
+    //     ...props,
+    //   })}
+    // >
+    <div className={styles.container}>
+      <div className={styles.lang}>
+        <SelectLang />
       </div>
-    </DocumentTitle>
+      <div className={styles.content}>
+        <div className={styles.top}>
+          <div className={styles.header}>
+            <Link to="/">
+              {/* <img alt="logo" className={styles.logo} src={logo} /> */}
+              <span className={styles.title}>Bombayjs Admin</span>
+            </Link>
+          </div>
+          <div className={styles.desc}>Bombayjs Admin是Bombayjs前端监控管理后台</div>
+        </div>
+        {children}
+      </div>
+      <DefaultFooter />
+    </div>
+    // </DocumentTitle>
   );
 };
 

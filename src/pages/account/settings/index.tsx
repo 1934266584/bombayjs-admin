@@ -127,7 +127,7 @@ class Settings extends Component<SettingsProps, SettingsState> {
   render() {
     const { currentUser } = this.props;
 
-    if (!currentUser.userid) {
+    if (!currentUser) {
       return '';
     }
 

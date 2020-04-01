@@ -39,9 +39,7 @@ const PageVariateForm: React.FC<IProps> = props => {
         <Form.Item label="页面路径">
           {getFieldDecorator('path', {
             initialValue: path,
-          })(<Input
-            disabled
-          />)}
+          })(<Input />)}
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>

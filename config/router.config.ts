@@ -70,6 +70,7 @@ export default [
             path: '/web/technology/application', // 应用
             name: 'application',
             icon: 'mobile',
+            component: './projects/list',
           },
           {
             path: '/web/technology/latitude', // 纬度
@@ -109,6 +110,12 @@ export default [
         name: 'viewdetail',
         component: './web/viewdetail',
         icon: 'monitor',
+      },
+      {
+        name: 'settings',
+        path: '/account/settings',
+        icon: 'setting',
+        component: './account/settings',
       },
       {
         component: './404',

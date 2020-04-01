@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { FormComponentProps } from 'antd/es/form';
 import { connect } from 'dva';
 import { CurrentUser } from '../data.d';
-import GeographicView from './GeographicView';
+// import GeographicView from './GeographicView';
 import PhoneView from './PhoneView';
 import styles from './BaseView.less';
 
@@ -175,7 +175,7 @@ class BaseView extends Component<BaseViewProps> {
                 </Select>,
               )}
             </FormItem>
-            <FormItem label="所在省市">
+            {/* <FormItem label="所在省市">
               {getFieldDecorator('geographic', {
                 rules: [
                   {
@@ -187,7 +187,7 @@ class BaseView extends Component<BaseViewProps> {
                   },
                 ],
               })(<GeographicView />)}
-            </FormItem>
+            </FormItem> */}
             <FormItem label="街道地址">
               {getFieldDecorator('address', {
                 rules: [
