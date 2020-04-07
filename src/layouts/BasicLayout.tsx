@@ -55,7 +55,7 @@ const footerRender: BasicLayoutProps['footerRender'] = _ => (
         textAlign: 'center',
       }}
     >
-      Copyright <Icon type="copyright" /> 2019 bombayjs出品
+      Copyright <Icon type="copyright" /> 2020 bombayjs出品
     </div>
   </>
 );

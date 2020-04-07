@@ -11,6 +11,7 @@ export default {
   'viewdetail.alllog.api_requesturl': 'API请求URL',
   'viewdetail.alllog.api_request_time_exceeded': 'API请求时间超过(ms)',
   'viewdetail.alllog.apimsg': 'API消息',
+  'viewdetail.alllog.logType_placeholder': '登陆所在地',
   'viewdetail.alllog.api_report_error': 'API是否报错',
   'viewdetail.alllog.traceid': 'traceId',
   'viewdetail.alllog.code': 'code',

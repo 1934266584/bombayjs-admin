@@ -124,20 +124,30 @@ const viewDetailModal: viewDetailModalType = {
   },
   reducers: {
     updateAllLogDataList(state, { payload }) {
-      state.allLog.allLogDataList = payload;
-      return state;
+      const { allLog } = state;
+      allLog.allLogDataList = payload;
+      return {
+        ...state,
+        allLog,
+      };
     },
 
     updateAllLogTotal(state, { payload }) {
       const { allLog } = state;
       allLog.total = payload;
-      return Object.assign(state, allLog);
+      return {
+        ...state,
+        allLog,
+      };
     },
 
     switchAllLogIsLoadingData(state, { payload }) {
       const { allLog } = state;
       allLog.isLoadingData = payload;
-      return Object.assign(state, allLog);
+      return {
+        ...state,
+        allLog,
+      };
     },
   },
 };

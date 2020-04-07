@@ -11,29 +11,36 @@ import styles from './styles.less';
 // }
 
 class ViewDetail extends PureComponent {
+  state = {
+    currentKey: '1',
+  };
+
   changeTag = (key: string) => {
-    console.log(key);
+    this.setState({
+      currentKey: key,
+    });
   };
 
   render() {
     const { TabPane } = Tabs;
+    const { currentKey } = this.state;
     return (
       <div className={styles.viewdetal_container}>
         <Tabs defaultActiveKey="1" onChange={this.changeTag}>
           <TabPane tab="全部日志" key="1">
-            <AllLog />
+            {currentKey === '1' && <AllLog />}
           </TabPane>
           <TabPane tab="Js错误日志" key="2">
-            <div>Content of Tab Pane 2</div>
+            {currentKey === '2' && <AllLog types="error" />}
           </TabPane>
           <TabPane tab="API日志" key="3">
-            <div>Content of Tab Pane 3</div>
+            {currentKey === '3' && <AllLog types="api" />}
           </TabPane>
           <TabPane tab="页面性能日志" key="4">
-            <div>Content of Tab Pane 4</div>
+            {currentKey === '4' && <AllLog types="perf" />}
           </TabPane>
           <TabPane tab="PV日志" key="5">
-            <div>Content of Tab Pane 5</div>
+            {currentKey === '5' && <AllLog types="pv" />}
           </TabPane>
         </Tabs>
       </div>
