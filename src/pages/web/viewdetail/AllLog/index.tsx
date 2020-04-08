@@ -212,11 +212,6 @@ class AllLog extends PureComponent<AllLogTypeProps, AllLogTypeState> {
     };
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps);
-    return true;
-  }
-
   componentDidMount() {
     this.initAllLogDataAction();
   }
