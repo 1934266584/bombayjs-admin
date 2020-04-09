@@ -204,7 +204,7 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
 
   return (
     <div className={className}>
-      <SelectDatetime dateRange={dateRange} setDateRange={onSetDateRange} />
+      {/* <SelectDatetime dateRange={dateRange} setDateRange={onSetDateRange} /> */}
       <SelectProject
         className={styles.action}
         projectList={projectList}

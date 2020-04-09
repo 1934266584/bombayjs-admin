@@ -92,6 +92,17 @@ class Home extends React.Component<HomeProps, HomeStates> {
     });
   };
 
+  deleteProject = (token: string) => {
+    return () => {
+      this.props.dispatch({
+        type: 'project/deleteProjectByToken',
+        payload: {
+          token,
+        },
+      });
+    };
+  };
+
   selectType = (e: any) => {
     const { project } = this.state;
     this.setState({
@@ -139,10 +150,10 @@ class Home extends React.Component<HomeProps, HomeStates> {
       <div className={styles.extraContent}>
         <RadioGroup defaultValue="all">
           <RadioButton value="all">全部</RadioButton>
-          <RadioButton value="progress">进行中</RadioButton>
-          <RadioButton value="waiting">已停用</RadioButton>
+          {/* <RadioButton value="progress">进行中</RadioButton>
+          <RadioButton value="waiting">已停用</RadioButton> */}
         </RadioGroup>
-        <Search className={styles.extraContentSearch} placeholder="请输入" onSearch={() => ({})} />
+        {/* <Search className={styles.extraContentSearch} placeholder="请输入" onSearch={() => ({})} /> */}
       </div>
     );
 
@@ -151,20 +162,20 @@ class Home extends React.Component<HomeProps, HomeStates> {
       return (
         <div className={styles.listContent}>
           <div className={styles.listContentItem}>
-            <span>ProjectName</span>
+            <span>项目名称</span>
             <p>{projectName}</p>
           </div>
           <div className={styles.listContentItem}>
-            <span>type</span>
+            <span>项目类型</span>
             <p>{type}</p>
           </div>
           <div className={styles.listContentItem}>
-            <span>token</span>
+            <span>项目TOKEN</span>
             <p>{token}</p>
           </div>
           <div className={styles.listContentItem}>
-            <span>is_use</span>
-            <p>{isUse}</p>
+            <span>启用状态</span>
+            <p>{isUse === 1 ? '启用' : '禁用'}</p>
           </div>
         </div>
       );
@@ -205,6 +216,9 @@ class Home extends React.Component<HomeProps, HomeStates> {
               <List.Item
                 actions={[
                   <Link to={`/web/setting?token=${item.token}`}>编辑</Link>,
+                  <a key="list-loadmore-more" onClick={this.deleteProject(item.token)}>
+                    删除
+                  </a>,
                   // <MoreBtn current={item} />,
                 ]}
               >

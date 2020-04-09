@@ -23,10 +23,6 @@ export default [
     authority: ['admin', 'user'],
     routes: [
       {
-        path: '/',
-        redirect: '/home',
-      },
-      {
         path: '/web/setting',
         name: 'setting',
         component: './web/setting',
@@ -53,10 +49,13 @@ export default [
             name: 'eventvariate',
             component: './web/product/eventvariate',
           },
+          // {
+          //   path: '/web/product/group',
+          //   name: 'group',
+          //   component: './web/product/group',
+          // },
           {
-            path: '/web/product/group',
-            name: 'group',
-            component: './web/product/group',
+            component: './404',
           },
         ],
       },
@@ -72,36 +71,40 @@ export default [
             icon: 'mobile',
             component: './projects/list',
           },
-          {
-            path: '/web/technology/latitude', // 纬度
-            name: 'latitude',
-            icon: 'unordered-list',
-            routes: [
-              {
-                path: '/web/technology/latitude/url', // 页面
-                name: 'url',
-                component: './web/technology/latitude/url',
-              },
-              {
-                path: '/web/technology/latitude/geography', // 地理
-                name: 'geography',
-                component: './web/technology/latitude/geography',
-              },
-              {
-                path: '/web/technology/latitude/terminal', // 终端
-                name: 'terminal',
-                component: './web/technology/latitude/terminal',
-              },
-              {
-                path: '/web/technology/latitude/network', // 终端
-                name: 'network',
-                component: './web/technology/latitude/network',
-              },
-            ],
-          },
+          // TODO: 项目应用的维度概览，这个地方需要用到elasticsearch
+          // {
+          //   path: '/web/technology/latitude', // 纬度
+          //   name: 'latitude',
+          //   icon: 'unordered-list',
+          //   routes: [
+          //     {
+          //       path: '/web/technology/latitude/url', // 页面
+          //       name: 'url',
+          //       component: './web/technology/latitude/url',
+          //     },
+          //     {
+          //       path: '/web/technology/latitude/geography', // 地理
+          //       name: 'geography',
+          //       component: './web/technology/latitude/geography',
+          //     },
+          //     {
+          //       path: '/web/technology/latitude/terminal', // 终端
+          //       name: 'terminal',
+          //       component: './web/technology/latitude/terminal',
+          //     },
+          //     {
+          //       path: '/web/technology/latitude/network', // 终端
+          //       name: 'network',
+          //       component: './web/technology/latitude/network',
+          //     },
+          //   ],
+          // },
           // {
           //   path: '/web/technology/setting', // 设置
           // }
+          {
+            component: './404',
+          },
         ],
       },
       // 访问明细页
@@ -111,12 +114,13 @@ export default [
         component: './web/viewdetail',
         icon: 'monitor',
       },
-      {
-        name: 'settings',
-        path: '/account/settings',
-        icon: 'setting',
-        component: './account/settings',
-      },
+      // TODO: 个人设置
+      // {
+      //   name: 'settings',
+      //   path: '/account/settings',
+      //   icon: 'setting',
+      //   component: './account/settings',
+      // },
       {
         component: './404',
       },

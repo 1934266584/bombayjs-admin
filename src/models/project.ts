@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 import { Effect } from 'dva';
 import { stringify } from 'querystring';
 
-import { getWebProjectListDao } from '@/services/project';
+import { getWebProjectListDao, deleteProject } from '@/services/project';
 import { getPageQuery } from '@/utils/utils';
 
 export interface ProjectStateType {
@@ -16,6 +16,7 @@ export interface ProjectModelType {
   effects: {
     fetchProjectList: Effect;
     setProjectToken: Effect;
+    deleteProjectByToken: Effect;
   };
   reducers: {
     changeProjectList: Reducer<ProjectStateType>;
@@ -48,6 +49,18 @@ const Model: ProjectModelType = {
         type: 'changeProjectToken',
         payload: token,
       });
+    },
+    *deleteProjectByToken({ payload }, { call, put }) {
+      const response = yield call(deleteProject, payload);
+      if (response.code === 200) {
+        const response = yield call(getWebProjectListDao, payload);
+        if (response.code === 200) {
+          yield put({
+            type: 'changeProjectList',
+            payload: response.data,
+          });
+        }
+      }
     },
   },
 

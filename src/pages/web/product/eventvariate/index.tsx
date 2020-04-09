@@ -1,38 +1,10 @@
 import React, { Fragment } from 'react';
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import { ConnectProps, ConnectState } from '@/models/connect';
 import { Dispatch } from 'redux';
 import { connect } from 'dva';
-import {
-  Form,
-  Divider,
-  Table,
-  Select,
-  Alert,
-  Tag,
-  Icon,
-  Input,
-  Button,
-  message,
-  Skeleton,
-  Switch,
-  Card,
-  Avatar,
-  Radio,
-  List,
-  Modal,
-  Dropdown,
-  Menu,
-  Row,
-  Col,
-  Drawer,
-  notification,
-} from 'antd';
+import { Form, Divider, Table, Select, Alert, Input, Button, message, Row, Col } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import { TableRowSelection } from 'antd/lib/table';
-import Link from 'umi/link';
-import router from 'umi/router';
 import { getEventVariateListDao, setEventVariateDao } from '@/services/eventVariate';
 import EventVariateForm from '@/components/EventVariateForm';
 
