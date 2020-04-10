@@ -47,7 +47,7 @@ const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] => {
   return n;
 };
 
-const footerRender: BasicLayoutProps['footerRender'] = _ => (
+const footerRender: BasicLayoutProps['footerRender'] = () => (
   <>
     <div
       style={{
@@ -55,7 +55,7 @@ const footerRender: BasicLayoutProps['footerRender'] = _ => (
         textAlign: 'center',
       }}
     >
-      Copyright <Icon type="copyright" /> 2020 bombayjs出品
+      Copyright <Icon type="copyright" /> 2020 中科云谷产品部出品
     </div>
   </>
 );

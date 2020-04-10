@@ -7,19 +7,19 @@ import { Icon, Layout, Row, Col } from 'antd';
 import React, { useEffect } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'dva';
-
 import { ConnectState } from '@/models/connect';
 import logo from '@/assets/logo.svg';
-import styles from './HomeLayout.less';
 import Avatar from '@/components/GlobalHeader/AvatarDropdown';
+import styles from './HomeLayout.less';
 
 const { Header, Footer, Content } = Layout;
 
 export interface BasicLayoutProps {
   dispatch: Dispatch;
+  footerRender: any;
 }
 
-const footerRender: BasicLayoutProps['footerRender'] = _ => (
+const footerRender: BasicLayoutProps['footerRender'] = () => (
   <>
     <div
       style={{
@@ -27,7 +27,7 @@ const footerRender: BasicLayoutProps['footerRender'] = _ => (
         textAlign: 'center',
       }}
     >
-      Copyright <Icon type="copyright" /> 2020 bombayjs出品
+      Copyright <Icon type="copyright" /> 2020 中科云谷产品部出品
     </div>
   </>
 );

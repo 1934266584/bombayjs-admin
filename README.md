@@ -1,14 +1,14 @@
 # BOMBAYJS-ADMIN
 
-此项目是bombayjs后台管理系统
+此项目是 bombayjs 后台管理系统
 
-bombayjs是前端监控解决方案，包括bombayjs、bombayjs-server、bombayjs-admin三个项目
+bombayjs 是前端监控解决方案，包括 bombayjs、bombayjs-server、bombayjs-admin 三个项目
 
 项目地址：
 
-* https://github.com/bombayjs/bombayjs (web sdk)
-* https://github.com/bombayjs/bombayjs-server (服务端，用于提供api)
-* https://github.com/bombayjs/bombayjs-admin （后台管理系统，可视化数据等）
+- https://github.com/122687220/bombayjs (web sdk)
+- https://github.com/122687220/bombayjs-server (服务端，用于提供 api)
+- https://github.com/122687220/bombayjs-admin （后台管理系统，可视化数据等）
 
 ## Environment Prepare
 
@@ -33,6 +33,7 @@ Scripts provided in `package.json`. It's safe to modify or add additional script
 ### Start project
 
 mock
+
 ```bash
 npm start
 ```
