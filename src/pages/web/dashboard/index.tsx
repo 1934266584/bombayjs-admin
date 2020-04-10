@@ -1,11 +1,12 @@
 import React from 'react';
-import { Chart, Geom, Axis, Tooltip, Legend, Coord } from 'bizcharts';
-import { Row, Col, DatePicker } from 'antd';
+import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
+import { DatePicker } from 'antd';
 import { getDashboardLogs, getDashboardLogInSeven } from '@/services/dashboard';
-
-const { RangePicker } = DatePicker;
+import { ConnectProps } from '@/models/connect';
 
 import styles from './style.less';
+
+const { RangePicker } = DatePicker;
 
 // 定义度量
 const cols = {
@@ -39,7 +40,7 @@ interface DashboardStates {
 }
 
 class Dashboard extends React.Component<ConnectProps, DashboardStates> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       token: props.location.query.token,
@@ -73,14 +74,15 @@ class Dashboard extends React.Component<ConnectProps, DashboardStates> {
       .flat();
 
     this.setState({
-      lineData: lineData,
+      lineData,
     });
   };
 
-  getDashboardLogs = async (startTime, endTime) => {
+  getDashboardLogs = async (startTime: number, endTime: number) => {
+    const { token } = this.state;
     const acount = await getDashboardLogs(
       ['error', 'api', 'perf', 'pv'],
-      this.state.token,
+      token,
       startTime,
       endTime,
     );
@@ -146,7 +148,7 @@ class Dashboard extends React.Component<ConnectProps, DashboardStates> {
                 type: 'y',
               }}
             />
-            <Geom type="line" position="date*times" size={2} color={'type'} shape={'smooth'} />
+            <Geom type="line" position="date*times" size={2} color="type" shape="smooth" />
           </Chart>
         </div>
       </div>
