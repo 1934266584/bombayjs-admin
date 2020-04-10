@@ -7,7 +7,7 @@ export async function addProjectDao(params: IProjectType) {
   });
 }
 
-export async function deleteProject(token: string) {
+export async function deleteProject(token: Object) {
   return request('/api/v1/project/delete', {
     method: 'POST',
     data: {

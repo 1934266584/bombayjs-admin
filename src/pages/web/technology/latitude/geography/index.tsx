@@ -31,7 +31,7 @@ class Geography extends Component<GeographyProps> {
     this.handleGetListDataFun(this.props);
   }
 
-  componentWillReceiveProps(nextProps: GeographyProps, preState: any) {
+  componentWillReceiveProps(nextProps: GeographyProps) {
     this.handleGetListDataFun(nextProps);
   }
 

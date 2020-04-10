@@ -1,6 +1,11 @@
 import request from '@/utils/request';
 
-export async function getDashboardLogs(type: Array, projectToken: string, startTime, endTime) {
+export async function getDashboardLogs(
+  type: Array<string>,
+  projectToken: string,
+  startTime: number,
+  endTime: number,
+) {
   return request('/api/v1/dashboard/countLog', {
     method: 'POST',
     data: {

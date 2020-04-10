@@ -1,6 +1,5 @@
 import { Reducer } from 'redux';
 import { Effect } from 'dva';
-import { stringify } from 'querystring';
 
 import { getWebProjectListDao, deleteProject } from '@/services/project';
 import { getPageQuery } from '@/utils/utils';
@@ -42,7 +41,7 @@ const Model: ProjectModelType = {
         });
       }
     },
-    *setProjectToken({ payload }, { call, put }) {
+    *setProjectToken(store, { put }) {
       const params = getPageQuery();
       const { token } = params;
       yield put({
@@ -53,8 +52,8 @@ const Model: ProjectModelType = {
     *deleteProjectByToken({ payload }, { call, put }) {
       const response = yield call(deleteProject, payload);
       if (response.code === 200) {
-        const response = yield call(getWebProjectListDao, payload);
-        if (response.code === 200) {
+        const res = yield call(getWebProjectListDao, payload);
+        if (res.code === 200) {
           yield put({
             type: 'changeProjectList',
             payload: response.data,

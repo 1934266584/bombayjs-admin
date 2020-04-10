@@ -10,6 +10,7 @@ export interface CurrentUser {
   id?: string;
   create_time?: string;
   user_name?: string;
+  name?: string;
 }
 
 export interface UserModelState {
@@ -60,6 +61,7 @@ const UserModel: UserModelType = {
         currentUser: action.payload || {},
       };
     },
+    // @ts-ignore
     changeNotifyCount(
       state = {
         currentUser: {},
