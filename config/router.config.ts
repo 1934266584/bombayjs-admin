@@ -166,11 +166,6 @@ export default [
             component: './projects/list',
           },
           {
-            path: '/web/add',
-            name: '新增项目',
-            component: './web/add',
-          },
-          {
             name: 'settings',
             authority: ['user'],
             hideInMenu: true,
