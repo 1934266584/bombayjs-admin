@@ -43,6 +43,7 @@ const errorHandler = (error: { response: Response }): Response => {
       window.location.href = `#/user/login?redirect=${window.location.href}`;
     }
   } else if (!response) {
+    window.location.href = `#/user/login?redirect=${window.location.href}`;
     notification.error({
       description: '您的网络发生异常，无法连接服务器',
       message: '网络异常',
