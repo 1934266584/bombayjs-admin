@@ -40,7 +40,7 @@ const errorHandler = (error: { response: Response }): Response => {
     });
     // 401未授权
     if (status === 401) {
-      window.location.href = `/user/login?redirect=${window.location.href}`;
+      window.location.href = `#/user/login?redirect=${window.location.href}`;
     }
   } else if (!response) {
     notification.error({

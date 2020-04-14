@@ -73,6 +73,7 @@ if (isAntDesignProPreview) {
 
 export default {
   publicPath: '/bombayjs-admin/',
+  history: 'hash',
   plugins,
   block: {
     // 国内用户可以使用码云
