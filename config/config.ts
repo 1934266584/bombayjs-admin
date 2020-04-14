@@ -72,6 +72,7 @@ if (isAntDesignProPreview) {
 }
 
 export default {
+  publicPath: '/bombayjs-admin/',
   plugins,
   block: {
     // 国内用户可以使用码云
@@ -130,7 +131,7 @@ export default {
     },
   },
   manifest: {
-    basePath: '/',
+    basePath: '',
   },
   chainWebpack: webpackPlugin,
   /*

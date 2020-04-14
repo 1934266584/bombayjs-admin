@@ -1,3 +1,3 @@
 export default {
-  requestPrefix: 'http://127.0.0.1:7002',
+  requestPrefix: 'http://134.175.94.244:7001',
 };
