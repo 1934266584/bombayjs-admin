@@ -4,7 +4,7 @@ import { formatMessage } from 'umi-plugin-react/locale';
 import { connect } from 'dva';
 import DataTable from '@/components/DataTable';
 import { viewDetailStateType } from '@/models/viewDetail';
-import SearchParam from './SearchParam';
+// import SearchParam from './SearchParam';
 
 // import styles from './index.less';
 
@@ -15,6 +15,7 @@ interface AllLogTypeProps {
 
 interface AllLogTypeState {
   tableTitleColumns: Array<any>;
+  pagination: Object;
 }
 
 @connect(({ viewdetail, project }: { viewdetail: viewDetailStateType }) => ({
@@ -209,6 +210,7 @@ class AllLog extends PureComponent<AllLogTypeProps, AllLogTypeState> {
           width: 200,
         },
       ],
+      pagination: {},
     };
   }
 
@@ -216,26 +218,15 @@ class AllLog extends PureComponent<AllLogTypeProps, AllLogTypeState> {
     this.initAllLogDataAction();
   }
 
-  initAllLogDataAction() {
-    const { dispatch, projectToken } = this.props;
-    if (dispatch) {
-      dispatch({
-        type: 'viewdetail/getAllLogAction',
-        payload: {
-          startTime: 1463390087795,
-          endTime: new Date().getTime(),
-          currentPage: 1,
-          pageSize: 10,
-          order: 'desc',
-          query: {},
-          type: this.props.types || ['error', 'api', 'perf', 'pv'],
-          projectToken,
-        },
-      });
-    }
-
-    // console.log('result:', AllLogResult)
-  }
+  handleTableChange = pagination => {
+    this.initAllLogDataAction(pagination);
+    this.setState(prev => ({
+      pagination: {
+        ...prev.pagination,
+        current: pagination.current,
+      },
+    }));
+  };
 
   washAllLogData = viewdetail => {
     const allLogData = viewdetail.allLogDataList;
@@ -270,15 +261,43 @@ class AllLog extends PureComponent<AllLogTypeProps, AllLogTypeState> {
     }));
   };
 
+  initAllLogDataAction(pagination = {}) {
+    const { dispatch, projectToken } = this.props;
+    if (dispatch) {
+      dispatch({
+        type: 'viewdetail/getAllLogAction',
+        payload: {
+          startTime: 1463390087795,
+          endTime: new Date().getTime(),
+          currentPage: pagination.current || 1,
+          pageSize: pagination.pageSize || 10,
+          order: 'desc',
+          query: {},
+          type: this.props.types || ['error', 'api', 'perf', 'pv'],
+          projectToken,
+        },
+      });
+    }
+
+    // console.log('result:', AllLogResult)
+  }
+
   render() {
     const { tableTitleColumns } = this.state;
     const { viewdetail } = this.props;
+    const pagination = { ...this.state.pagination };
+    pagination.total = viewdetail.allLog.total;
     const dataList = this.washAllLogData(viewdetail.allLog);
 
     return (
       <div>
         {/* <SearchParam /> */}
-        <DataTable dataSource={dataList} columns={tableTitleColumns} />
+        <DataTable
+          dataSource={dataList}
+          columns={tableTitleColumns}
+          pagination={pagination}
+          onChange={this.handleTableChange}
+        />
       </div>
     );
   }

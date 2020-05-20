@@ -12,7 +12,7 @@ import styles from './styles.less';
 
 class ViewDetail extends PureComponent {
   state = {
-    currentKey: '1',
+    currentKey: '2',
   };
 
   changeTag = (key: string) => {
@@ -26,10 +26,10 @@ class ViewDetail extends PureComponent {
     const { currentKey } = this.state;
     return (
       <div className={styles.viewdetal_container}>
-        <Tabs defaultActiveKey="1" onChange={this.changeTag}>
-          <TabPane tab="全部日志" key="1">
+        <Tabs defaultActiveKey="2" onChange={this.changeTag}>
+          {/* <TabPane tab="全部日志" key="1">
             {currentKey === '1' && <AllLog />}
-          </TabPane>
+          </TabPane> */}
           <TabPane tab="Js错误日志" key="2">
             {currentKey === '2' && <AllLog types="error" />}
           </TabPane>
