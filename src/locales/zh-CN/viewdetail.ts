@@ -3,7 +3,7 @@ export default {
   'viewdetail.alllog.uid': 'UID',
   'viewdetail.alllog.logType': '日志类型',
   'viewdetail.alllog.select_enter_condition': '选择或输入条件',
-  'viewdetail.alllog.device': '设备',
+  'viewdetail.alllog.device': '设备/浏览器/操作系统',
   'viewdetail.alllog.jsfile_url': 'JS文件URL',
   'viewdetail.alllog.js_errmsg': 'JS错误消息',
   'viewdetail.alllog.page_full_loadtime': '页面完全加载时间(ms)',
